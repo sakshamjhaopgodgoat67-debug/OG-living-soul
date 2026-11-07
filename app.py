@@ -43,7 +43,7 @@ def chat():
                 "Content-Type": "application/json"
             },
             json={
-                "model": "llama-3.3-70b-versatile",
+                "model": "qwen/qwen3.8-27b",
                 "messages": [
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_message}
