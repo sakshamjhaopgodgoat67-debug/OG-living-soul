@@ -93,9 +93,9 @@ def chat():
         else:
             return jsonify({"reply": "I felt a disturbance in the connection."})
 
-    except Exception as e:
+        except Exception as e:
         print("Error:", e)
-        return jsonify({"reply": "Something went wrong while reaching the higher realm."})
+        return jsonify({"reply": f"Error: {str(e)}"})
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
