@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Living Soul — OG AI</title>
+<title>Living Soul — SS Brothers</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #05050f;
-    --soul: #7c5cff;
-    --soul-glow: #a78bfa;
-    --text: #e2e8f0;
-    --glass: rgba(255, 255, 255, 0.05);
+    --bg: #030308;
+    --card: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --purple: #8b5cf6;
+    --purple-glow: #a78bfa;
+    --text: #f1f5f9;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,129 +22,219 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    overflow-x: hidden;
     background-image: 
-      radial-gradient(ellipse at 20% 20%, rgba(124, 92, 255, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+      radial-gradient(ellipse at top, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
   }
 
   .container {
-    max-width: 900px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 25px 20px;
+    padding: 30px 20px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
-  header { text-align: center; margin-bottom: 20px; }
+  header { text-align: center; margin-bottom: 25px; }
 
   .logo {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #c4b5fd, #7c5cff, #a78bfa);
+    background: linear-gradient(135deg, #c4b5fd, #8b5cf6, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 4px;
+    letter-spacing: -1px;
   }
 
-  .tagline { font-size: 0.95rem; color: #94a3b8; margin-bottom: 18px; }
-
-  /* Mode Selector */
-  .mode-selector {
-    display: flex;
-    justify-content: center;
+  .tagline {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-top: 4px;
     margin-bottom: 20px;
   }
 
+  .face-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .face {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #facc15, #eab308);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.35);
+    transition: all 0.4s ease;
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+
+  .face.sad {
+    background: linear-gradient(145deg, #94a3b8, #64748b);
+    box-shadow: 0 0 25px rgba(100, 116, 139, 0.4);
+  }
+
+  .face.thinking {
+    background: linear-gradient(145deg, #60a5fa, #3b82f6);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+  }
+
+  .mode-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+
   select {
-    background: rgba(124, 92, 255, 0.15);
-    border: 1px solid rgba(124, 92, 255, 0.4);
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.35);
     color: #e2e8f0;
-    padding: 10px 18px;
-    border-radius: 12px;
-    font-size: 1rem;
+    padding: 11px 20px;
+    border-radius: 14px;
+    font-size: 0.95rem;
     font-family: inherit;
     outline: none;
     cursor: pointer;
-    min-width: 220px;
+    min-width: 210px;
   }
 
   select option { background: #0f0f1a; }
 
   .chat-box {
     flex: 1;
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 20px;
+    background: var(--card);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 22px;
     overflow-y: auto;
     max-height: 48vh;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 
   .message {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     display: flex;
-    gap: 10px;
+    gap: 12px;
     animation: fadeIn 0.35s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   .message.user { flex-direction: row-reverse; }
 
   .avatar {
-    width: 36px; height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
   }
 
   .avatar.soul {
-    background: linear-gradient(135deg, #7c5cff, #a78bfa);
-    box-shadow: 0 0 15px rgba(124, 92, 255, 0.45);
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.45);
   }
 
-  .avatar.user { background: #1e293b; border: 1px solid #334155; }
+  .avatar.user {
+    background: #1e293b;
+    border: 1px solid #334155;
+  }
 
   .bubble {
-    max-width: 75%;
-    padding: 12px 16px;
-    border-radius: 16px;
-    line-height: 1.5;
+    max-width: 78%;
+    padding: 13px 17px;
+    border-radius: 18px;
+    line-height: 1.55;
     font-size: 0.95rem;
   }
 
   .message.soul .bubble {
-    background: rgba(124, 92, 255, 0.15);
-    border: 1px solid rgba(124, 92, 255, 0.25);
-    border-bottom-left-radius: 4px;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    border-bottom-left-radius: 5px;
   }
 
   .message.user .bubble {
-    background: rgba(30, 41, 59, 0.85);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-bottom-right-radius: 4px;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-bottom-right-radius: 5px;
   }
 
-  /* Painting Canvas */
+  /* Code blocks */
+  .code-block {
+    background: #0f0f1a;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 12px;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(139, 92, 246, 0.15);
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    color: #c4b5fd;
+  }
+
+  .code-header button {
+    background: rgba(139, 92, 246, 0.3);
+    border: none;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+
+  .code-header button:hover {
+    background: rgba(139, 92, 246, 0.5);
+  }
+
+  .code-block pre {
+    margin: 0;
+    padding: 14px;
+    overflow-x: auto;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    color: #e2e8f0;
+  }
+
+  .inline-code {
+    background: rgba(139, 92, 246, 0.2);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.88rem;
+  }
+
   #paintingArea {
     display: none;
-    background: #111;
-    border-radius: 16px;
-    padding: 15px;
-    margin-bottom: 15px;
+    background: #0c0c14;
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 16px;
     text-align: center;
+    border: 1px solid var(--border);
   }
 
   #paintCanvas {
-    background: white;
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 10px;
     cursor: crosshair;
     max-width: 100%;
     touch-action: none;
@@ -157,19 +248,21 @@
     flex-wrap: wrap;
   }
 
-  .paint-controls button, .paint-controls input {
+  .paint-controls button, .paint-controls input[type="color"] {
     padding: 8px 14px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     font-family: inherit;
+    background: rgba(139, 92, 246, 0.2);
+    color: white;
   }
 
   .input-area {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
+    background: var(--card);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--border);
+    border-radius: 18px;
     padding: 10px;
     display: flex;
     gap: 8px;
@@ -182,32 +275,54 @@
     border: none;
     color: white;
     font-size: 1rem;
-    padding: 11px 14px;
+    padding: 12px 15px;
     outline: none;
     font-family: inherit;
   }
 
+  #userInput::placeholder { color: #64748b; }
+
   .btn {
-    width: 46px; height: 46px;
-    border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    transition: 0.2s;
+    font-size: 1.3rem;
+    transition: all 0.25s;
   }
 
-  .btn-mic { background: rgba(124, 92, 255, 0.2); color: #c4b5fd; }
-  .btn-mic.listening { background: #ef4444; color: white; }
-  .btn-send { background: linear-gradient(135deg, #7c5cff, #a78bfa); color: white; }
+  .btn-mic {
+    background: rgba(139, 92, 246, 0.18);
+    color: #c4b5fd;
+  }
+
+  .btn-mic.listening {
+    background: #ef4444;
+    color: white;
+    animation: pulse 1.2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+    50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+  }
+
+  .btn-send {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    color: white;
+  }
+
+  .btn:hover { transform: scale(1.07); }
 
   .status {
     text-align: center;
     font-size: 0.8rem;
     color: #64748b;
-    margin-top: 10px;
+    margin-top: 12px;
     min-height: 18px;
   }
 </style>
@@ -216,7 +331,11 @@
 <div class="container">
   <header>
     <div class="logo">Living Soul</div>
-    <div class="tagline">An OG AI • Multiple Brains</div>
+    <div class="tagline">Created by SS Brothers</div>
+
+    <div class="face-container">
+      <div class="face" id="face">😊</div>
+    </div>
 
     <div class="mode-selector">
       <select id="modeSelect">
@@ -224,20 +343,17 @@
         <option value="roast">Roast Mode</option>
         <option value="fun">Fun Mode</option>
         <option value="career">Career Mode</option>
-        <option value="webdev">Web Development</option>
-        <option value="gamedev">Game Development</option>
-        <option value="aidev">AI Development</option>
+        <option value="coder">Coder Mode</option>
         <option value="painting">Painting Mode</option>
       </select>
     </div>
   </header>
 
-  <!-- Painting Area -->
   <div id="paintingArea">
-    <canvas id="paintCanvas" width="700" height="400"></canvas>
+    <canvas id="paintCanvas" width="680" height="380"></canvas>
     <div class="paint-controls">
-      <input type="color" id="colorPicker" value="#7c5cff">
-      <input type="range" id="brushSize" min="1" max="30" value="5">
+      <input type="color" id="colorPicker" value="#8b5cf6">
+      <input type="range" id="brushSize" min="1" max="25" value="5">
       <button onclick="clearCanvas()">Clear</button>
     </div>
   </div>
@@ -266,20 +382,56 @@
   const status = document.getElementById('status');
   const modeSelect = document.getElementById('modeSelect');
   const paintingArea = document.getElementById('paintingArea');
+  const face = document.getElementById('face');
 
-  // ===== Painting Setup =====
+  const faceStyles = {
+    normal: "😊",
+    roast: "😈",
+    fun: "🤪",
+    career: "🧠",
+    coder: "💻",
+    painting: "🎨"
+  };
+
+  function updateFace(mood = "happy", mode = null) {
+    const currentMode = mode || modeSelect.value;
+    if (mood === "sad") {
+      face.textContent = "😢";
+      face.classList.add("sad");
+      face.classList.remove("thinking");
+    } else if (mood === "thinking") {
+      face.textContent = "🤔";
+      face.classList.add("thinking");
+      face.classList.remove("sad");
+    } else {
+      face.textContent = faceStyles[currentMode] || "😊";
+      face.classList.remove("sad", "thinking");
+    }
+  }
+
+  modeSelect.addEventListener("change", () => {
+    updateFace("happy");
+    if (modeSelect.value === "painting") {
+      paintingArea.style.display = "block";
+      chatBox.style.maxHeight = "32vh";
+    } else {
+      paintingArea.style.display = "none";
+      chatBox.style.maxHeight = "48vh";
+    }
+  });
+
+  // Painting
   const canvas = document.getElementById('paintCanvas');
   const ctx = canvas.getContext('2d');
   let painting = false;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
 
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-
-  function startPosition(e) {
+  function startPos(e) {
     painting = true;
     draw(e);
   }
-  function endPosition() {
+  function endPos() {
     painting = false;
     ctx.beginPath();
   }
@@ -288,7 +440,6 @@
     const rect = canvas.getBoundingClientRect();
     const x = (e.clientX || e.touches[0].clientX) - rect.left;
     const y = (e.clientY || e.touches[0].clientY) - rect.top;
-
     ctx.lineWidth = document.getElementById('brushSize').value;
     ctx.strokeStyle = document.getElementById('colorPicker').value;
     ctx.lineTo(x, y);
@@ -297,27 +448,16 @@
     ctx.moveTo(x, y);
   }
 
-  canvas.addEventListener('mousedown', startPosition);
-  canvas.addEventListener('mouseup', endPosition);
-  canvas.addEventListener('mousemove', draw);
-  canvas.addEventListener('touchstart', startPosition);
-  canvas.addEventListener('touchend', endPosition);
-  canvas.addEventListener('touchmove', draw);
+  canvas.addEventListener("mousedown", startPos);
+  canvas.addEventListener("mouseup", endPos);
+  canvas.addEventListener("mousemove", draw);
+  canvas.addEventListener("touchstart", startPos);
+  canvas.addEventListener("touchend", endPos);
+  canvas.addEventListener("touchmove", draw);
 
   function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
-
-  // Mode change
-  modeSelect.addEventListener('change', () => {
-    if (modeSelect.value === 'painting') {
-      paintingArea.style.display = 'block';
-      chatBox.style.maxHeight = '30vh';
-    } else {
-      paintingArea.style.display = 'none';
-      chatBox.style.maxHeight = '48vh';
-    }
-  });
 
   // Voice
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -327,12 +467,13 @@
   if (SpeechRecognition) {
     recognition = new SpeechRecognition();
     recognition.continuous = false;
-    recognition.lang = 'en-US';
+    recognition.lang = "en-US";
 
     recognition.onstart = () => {
       isListening = true;
-      micBtn.classList.add('listening');
+      micBtn.classList.add("listening");
       status.textContent = "Listening...";
+      updateFace("thinking");
     };
     recognition.onresult = (e) => {
       userInput.value = e.results[0][0].transcript;
@@ -340,18 +481,18 @@
     };
     recognition.onend = () => {
       isListening = false;
-      micBtn.classList.remove('listening');
+      micBtn.classList.remove("listening");
       status.textContent = "";
     };
   }
 
-  micBtn.addEventListener('click', () => {
+  micBtn.addEventListener("click", () => {
     if (!recognition) return alert("Use Chrome for voice");
     isListening ? recognition.stop() : recognition.start();
   });
 
   function speak(text) {
-    if ('speechSynthesis' in window) {
+    if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
       const utter = new SpeechSynthesisUtterance(text);
       utter.rate = 0.95;
@@ -359,12 +500,46 @@
     }
   }
 
+  function escapeHtml(text) {
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function copyCode(id) {
+    const code = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      const btn = event.target;
+      btn.innerText = "Copied!";
+      setTimeout(() => btn.innerText = "Copy", 1500);
+    });
+  }
+
   function addMessage(text, isUser = false) {
-    const div = document.createElement('div');
-    div.className = `message ${isUser ? 'user' : 'soul'}`;
+    const div = document.createElement("div");
+    div.className = `message ${isUser ? "user" : "soul"}`;
+
+    let formatted = text
+      .replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+        const id = "code-" + Math.random().toString(36).substr(2, 9);
+        return `
+          <div class="code-block">
+            <div class="code-header">
+              <span>${lang || "code"}</span>
+              <button onclick="copyCode('${id}')">Copy</button>
+            </div>
+            <pre id="${id}"><code>${escapeHtml(code.trim())}</code></pre>
+          </div>
+        `;
+      })
+      .replace(/`([^`]+)`/g, "<code class='inline-code'>$1</code>")
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\n/g, "<br>");
+
     div.innerHTML = `
-      <div class="avatar ${isUser ? 'user' : 'soul'}">${isUser ? 'You' : '✦'}</div>
-      <div class="bubble">${text}</div>
+      <div class="avatar ${isUser ? "user" : "soul"}">${isUser ? "You" : "✦"}</div>
+      <div class="bubble">${formatted}</div>
     `;
     chatBox.appendChild(div);
     chatBox.scrollTop = chatBox.scrollHeight;
@@ -376,8 +551,9 @@
 
     const mode = modeSelect.value;
     addMessage(text, true);
-    userInput.value = '';
+    userInput.value = "";
     status.textContent = "Living Soul is thinking...";
+    updateFace("thinking");
 
     try {
       const response = await fetch("/chat", {
@@ -385,19 +561,24 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, mode: mode })
       });
+
       const data = await response.json();
       addMessage(data.reply);
       speak(data.reply);
+      updateFace(data.mood || "happy");
     } catch (err) {
       addMessage("Connection failed.");
+      updateFace("sad");
     }
     status.textContent = "";
   }
 
-  sendBtn.addEventListener('click', sendMessage);
-  userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
+  sendBtn.addEventListener("click", sendMessage);
+  userInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
   });
+
+  updateFace("happy");
 </script>
 </body>
 </html>
