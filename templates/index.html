@@ -11,7 +11,6 @@
     --card: rgba(255, 255, 255, 0.03);
     --border: rgba(255, 255, 255, 0.08);
     --purple: #8b5cf6;
-    --purple-glow: #a78bfa;
     --text: #f1f5f9;
   }
 
@@ -27,243 +26,316 @@
       radial-gradient(ellipse at bottom right, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
   }
 
+  /* ===== LOGIN SCREEN ===== */
+  #loginScreen {
+    position: fixed;
+    inset: 0;
+    background: #030308;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .login-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 24px;
+    padding: 40px 35px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+  }
+
+  .login-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #c4b5fd, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .login-box p {
+    color: #94a3b8;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+  }
+
+  .login-box input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    background: rgba(0,0,0,0.3);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 18px;
+    font-family: inherit;
+  }
+
+  .login-box button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* ===== HELLO POPUP ===== */
+  #helloPopup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+
+  #helloPopup h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #facc15, #eab308);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: popIn 0.6s ease;
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* ===== MAIN APP ===== */
+  #mainApp { display: none; }
+
   .container {
-    max-width: 860px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 25px 20px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
-  header { text-align: center; margin-bottom: 25px; }
+  header { text-align: center; margin-bottom: 20px; }
 
   .logo {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: 700;
     background: linear-gradient(135deg, #c4b5fd, #8b5cf6, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -1px;
   }
 
-  .tagline {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    margin-top: 4px;
-    margin-bottom: 20px;
-  }
+  .tagline { font-size: 0.9rem; color: #94a3b8; margin: 4px 0 16px; }
 
-  .face-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 18px;
-  }
+  .face-container { display: flex; justify-content: center; margin-bottom: 16px; }
 
   .face {
-    width: 72px;
-    height: 72px;
+    width: 68px; height: 68px;
     border-radius: 50%;
     background: linear-gradient(145deg, #facc15, #eab308);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.4rem;
-    box-shadow: 0 0 30px rgba(250, 204, 21, 0.35);
-    transition: all 0.4s ease;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.3rem;
+    box-shadow: 0 0 28px rgba(250, 204, 21, 0.35);
+    transition: 0.4s;
     border: 3px solid rgba(255,255,255,0.15);
   }
 
-  .face.sad {
-    background: linear-gradient(145deg, #94a3b8, #64748b);
-    box-shadow: 0 0 25px rgba(100, 116, 139, 0.4);
-  }
+  .face.sad { background: linear-gradient(145deg, #94a3b8, #64748b); }
+  .face.thinking { background: linear-gradient(145deg, #60a5fa, #3b82f6); }
 
-  .face.thinking {
-    background: linear-gradient(145deg, #60a5fa, #3b82f6);
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
-  }
-
-  .mode-selector {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 22px;
-  }
+  .mode-selector { display: flex; justify-content: center; margin-bottom: 18px; }
 
   select {
     background: rgba(139, 92, 246, 0.12);
     border: 1px solid rgba(139, 92, 246, 0.35);
     color: #e2e8f0;
-    padding: 11px 20px;
-    border-radius: 14px;
+    padding: 10px 18px;
+    border-radius: 12px;
     font-size: 0.95rem;
     font-family: inherit;
     outline: none;
-    cursor: pointer;
-    min-width: 210px;
+    min-width: 200px;
   }
-
-  select option { background: #0f0f1a; }
 
   .chat-box {
     flex: 1;
     background: var(--card);
     backdrop-filter: blur(24px);
     border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 22px;
+    border-radius: 22px;
+    padding: 20px;
     overflow-y: auto;
-    max-height: 48vh;
-    margin-bottom: 18px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    max-height: 42vh;
+    margin-bottom: 16px;
   }
 
-  .message {
-    margin-bottom: 18px;
-    display: flex;
-    gap: 12px;
-    animation: fadeIn 0.35s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  .message { margin-bottom: 16px; display: flex; gap: 11px; animation: fadeIn 0.35s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .message.user { flex-direction: row-reverse; }
 
   .avatar {
-    width: 38px;
-    height: 38px;
+    width: 36px; height: 36px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; flex-shrink: 0;
   }
 
   .avatar.soul {
     background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-    box-shadow: 0 0 18px rgba(139, 92, 246, 0.45);
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
   }
 
-  .avatar.user {
-    background: #1e293b;
-    border: 1px solid #334155;
-  }
+  .avatar.user { background: #1e293b; border: 1px solid #334155; }
 
   .bubble {
     max-width: 78%;
-    padding: 13px 17px;
-    border-radius: 18px;
-    line-height: 1.55;
+    padding: 12px 16px;
+    border-radius: 16px;
+    line-height: 1.5;
     font-size: 0.95rem;
   }
 
   .message.soul .bubble {
     background: rgba(139, 92, 246, 0.12);
     border: 1px solid rgba(139, 92, 246, 0.22);
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 4px;
   }
 
   .message.user .bubble {
     background: rgba(30, 41, 59, 0.7);
     border: 1px solid rgba(255,255,255,0.07);
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 4px;
   }
 
-  /* Code blocks */
   .code-block {
     background: #0f0f1a;
     border: 1px solid rgba(139, 92, 246, 0.25);
     border-radius: 12px;
-    margin: 12px 0;
+    margin: 10px 0;
     overflow: hidden;
   }
 
   .code-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; justify-content: space-between; align-items: center;
     background: rgba(139, 92, 246, 0.15);
-    padding: 8px 14px;
-    font-size: 0.8rem;
+    padding: 7px 12px;
+    font-size: 0.78rem;
     color: #c4b5fd;
   }
 
   .code-header button {
     background: rgba(139, 92, 246, 0.3);
-    border: none;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-  }
-
-  .code-header button:hover {
-    background: rgba(139, 92, 246, 0.5);
+    border: none; color: white;
+    padding: 3px 10px; border-radius: 5px;
+    cursor: pointer; font-size: 0.78rem;
   }
 
   .code-block pre {
-    margin: 0;
-    padding: 14px;
+    margin: 0; padding: 12px;
     overflow-x: auto;
-    font-size: 0.87rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.45;
     color: #e2e8f0;
   }
 
-  .inline-code {
-    background: rgba(139, 92, 246, 0.2);
-    padding: 2px 6px;
-    border-radius: 5px;
-    font-size: 0.88rem;
-  }
-
+  /* ===== PAINTING MODE ===== */
   #paintingArea {
     display: none;
     background: #0c0c14;
     border-radius: 18px;
     padding: 16px;
-    margin-bottom: 16px;
-    text-align: center;
+    margin-bottom: 14px;
     border: 1px solid var(--border);
   }
 
-  #paintCanvas {
-    background: #fff;
+  .paint-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    justify-content: center;
+  }
+
+  .paint-tabs button {
+    padding: 8px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: transparent;
+    color: #c4b5fd;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .paint-tabs button.active {
+    background: rgba(139, 92, 246, 0.25);
+  }
+
+  #paintCanvas, #colorCanvas {
+    background: white;
     border-radius: 10px;
     cursor: crosshair;
     max-width: 100%;
     touch-action: none;
+    display: block;
+    margin: 0 auto;
   }
 
-  .paint-controls {
-    margin-top: 12px;
+  .tools {
     display: flex;
-    gap: 10px;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
   }
 
-  .paint-controls button, .paint-controls input[type="color"] {
-    padding: 8px 14px;
-    border-radius: 10px;
+  .tools button, .tools input {
+    padding: 7px 12px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
     font-family: inherit;
     background: rgba(139, 92, 246, 0.2);
     color: white;
+    font-size: 0.85rem;
+  }
+
+  .tools button.active-tool {
+    background: #8b5cf6;
+  }
+
+  .color-palette {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .color-swatch {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .color-swatch.active {
+    border-color: white;
+    transform: scale(1.15);
   }
 
   .input-area {
     background: var(--card);
     backdrop-filter: blur(24px);
     border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 10px;
+    border-radius: 16px;
+    padding: 9px;
     display: flex;
     gap: 8px;
     align-items: center;
@@ -275,126 +347,157 @@
     border: none;
     color: white;
     font-size: 1rem;
-    padding: 12px 15px;
+    padding: 11px 14px;
     outline: none;
     font-family: inherit;
   }
 
-  #userInput::placeholder { color: #64748b; }
-
   .btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    width: 46px; height: 46px;
+    border-radius: 13px;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
-    transition: all 0.25s;
+    font-size: 1.25rem;
   }
 
-  .btn-mic {
-    background: rgba(139, 92, 246, 0.18);
-    color: #c4b5fd;
-  }
-
-  .btn-mic.listening {
-    background: #ef4444;
-    color: white;
-    animation: pulse 1.2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
-    50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
-  }
-
-  .btn-send {
-    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-    color: white;
-  }
-
-  .btn:hover { transform: scale(1.07); }
+  .btn-mic { background: rgba(139, 92, 246, 0.18); color: #c4b5fd; }
+  .btn-mic.listening { background: #ef4444; color: white; }
+  .btn-send { background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white; }
 
   .status {
     text-align: center;
     font-size: 0.8rem;
     color: #64748b;
-    margin-top: 12px;
+    margin-top: 10px;
     min-height: 18px;
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <div class="logo">Living Soul</div>
-    <div class="tagline">Created by SS Brothers</div>
 
-    <div class="face-container">
-      <div class="face" id="face">😊</div>
-    </div>
-
-    <div class="mode-selector">
-      <select id="modeSelect">
-        <option value="normal">Normal Mode</option>
-        <option value="roast">Roast Mode</option>
-        <option value="fun">Fun Mode</option>
-        <option value="career">Career Mode</option>
-        <option value="coder">Coder Mode</option>
-        <option value="painting">Painting Mode</option>
-      </select>
-    </div>
-  </header>
-
-  <div id="paintingArea">
-    <canvas id="paintCanvas" width="680" height="380"></canvas>
-    <div class="paint-controls">
-      <input type="color" id="colorPicker" value="#8b5cf6">
-      <input type="range" id="brushSize" min="1" max="25" value="5">
-      <button onclick="clearCanvas()">Clear</button>
-    </div>
+<!-- LOGIN SCREEN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <h2>Living Soul</h2>
+    <p>Enter your name to begin</p>
+    <input type="text" id="usernameInput" placeholder="Your name..." maxlength="20" />
+    <button onclick="startApp()">Enter</button>
   </div>
+</div>
 
-  <div class="chat-box" id="chatBox">
-    <div class="message soul">
-      <div class="avatar soul">✦</div>
-      <div class="bubble">I am Living Soul. Choose a mode and speak to me.</div>
+<!-- HELLO POPUP -->
+<div id="helloPopup">
+  <h1 id="helloText">HELLO</h1>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp">
+  <div class="container">
+    <header>
+      <div class="logo">Living Soul</div>
+      <div class="tagline">Created by SS Brothers</div>
+
+      <div class="face-container">
+        <div class="face" id="face">😊</div>
+      </div>
+
+      <div class="mode-selector">
+        <select id="modeSelect">
+          <option value="normal">Normal Mode</option>
+          <option value="roast">Roast Mode</option>
+          <option value="fun">Fun Mode</option>
+          <option value="career">Career Mode</option>
+          <option value="coder">Coder Mode</option>
+          <option value="painting">Painting Mode</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- PAINTING AREA -->
+    <div id="paintingArea">
+      <div class="paint-tabs">
+        <button class="active" onclick="switchPaintTab('canvas')">Free Canvas</button>
+        <button onclick="switchPaintTab('color')">Color Pages</button>
+      </div>
+
+      <canvas id="paintCanvas" width="700" height="380"></canvas>
+      <canvas id="colorCanvas" width="700" height="380" style="display:none;"></canvas>
+
+      <div class="tools">
+        <button class="active-tool" onclick="setTool('pencil')">Pencil</button>
+        <button onclick="setTool('brush')">Brush</button>
+        <button onclick="setTool('eraser')">Eraser</button>
+        <button onclick="clearCanvas()">Clear</button>
+        <input type="range" id="brushSize" min="1" max="40" value="6">
+      </div>
+
+      <div class="color-palette" id="colorPalette"></div>
     </div>
-  </div>
 
-  <div class="input-area">
-    <button class="btn btn-mic" id="micBtn">🎤</button>
-    <input type="text" id="userInput" placeholder="Speak or type..." autocomplete="off"/>
-    <button class="btn btn-send" id="sendBtn">➤</button>
-  </div>
+    <div class="chat-box" id="chatBox">
+      <div class="message soul">
+        <div class="avatar soul">✦</div>
+        <div class="bubble">I am Living Soul. Choose a mode and speak to me.</div>
+      </div>
+    </div>
 
-  <div class="status" id="status"></div>
+    <div class="input-area">
+      <button class="btn btn-mic" id="micBtn">🎤</button>
+      <input type="text" id="userInput" placeholder="Speak or type..." autocomplete="off"/>
+      <button class="btn btn-send" id="sendBtn">➤</button>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
 </div>
 
 <script>
-  const chatBox = document.getElementById('chatBox');
-  const userInput = document.getElementById('userInput');
-  const sendBtn = document.getElementById('sendBtn');
-  const micBtn = document.getElementById('micBtn');
-  const status = document.getElementById('status');
-  const modeSelect = document.getElementById('modeSelect');
-  const paintingArea = document.getElementById('paintingArea');
-  const face = document.getElementById('face');
+  // ========== USERNAME & LOGIN ==========
+  let username = localStorage.getItem("living_soul_user") || "";
+
+  function startApp() {
+    const name = document.getElementById("usernameInput").value.trim();
+    if (!name) return alert("Please enter your name");
+
+    username = name;
+    localStorage.setItem("living_soul_user", name);
+
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("helloPopup").style.display = "flex";
+    document.getElementById("helloText").innerText = `HELLO ${name.toUpperCase()}`;
+
+    // Speak hello
+    const utter = new SpeechSynthesisUtterance(`Hello ${name}`);
+    utter.rate = 0.9;
+    window.speechSynthesis.speak(utter);
+
+    setTimeout(() => {
+      document.getElementById("helloPopup").style.display = "none";
+      document.getElementById("mainApp").style.display = "block";
+    }, 2500);
+  }
+
+  // If already logged in
+  if (username) {
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("mainApp").style.display = "block";
+  }
+
+  // ========== FACE & MODES ==========
+  const face = document.getElementById("face");
+  const modeSelect = document.getElementById("modeSelect");
+  const paintingArea = document.getElementById("paintingArea");
+  const chatBox = document.getElementById("chatBox");
 
   const faceStyles = {
-    normal: "😊",
-    roast: "😈",
-    fun: "🤪",
-    career: "🧠",
-    coder: "💻",
-    painting: "🎨"
+    normal: "😊", roast: "😈", fun: "🤪",
+    career: "🧠", coder: "💻", painting: "🎨"
   };
 
-  function updateFace(mood = "happy", mode = null) {
-    const currentMode = mode || modeSelect.value;
+  function updateFace(mood = "happy") {
     if (mood === "sad") {
       face.textContent = "😢";
       face.classList.add("sad");
@@ -404,28 +507,99 @@
       face.classList.add("thinking");
       face.classList.remove("sad");
     } else {
-      face.textContent = faceStyles[currentMode] || "😊";
+      face.textContent = faceStyles[modeSelect.value] || "😊";
       face.classList.remove("sad", "thinking");
     }
   }
 
   modeSelect.addEventListener("change", () => {
-    updateFace("happy");
+    updateFace();
     if (modeSelect.value === "painting") {
       paintingArea.style.display = "block";
-      chatBox.style.maxHeight = "32vh";
+      chatBox.style.maxHeight = "28vh";
     } else {
       paintingArea.style.display = "none";
-      chatBox.style.maxHeight = "48vh";
+      chatBox.style.maxHeight = "42vh";
     }
   });
 
-  // Painting
-  const canvas = document.getElementById('paintCanvas');
-  const ctx = canvas.getContext('2d');
+  // ========== PAINTING ==========
+  const canvas = document.getElementById("paintCanvas");
+  const colorCanvas = document.getElementById("colorCanvas");
+  const ctx = canvas.getContext("2d");
+  const colorCtx = colorCanvas.getContext("2d");
   let painting = false;
-  ctx.lineCap = "round";
-  ctx.lineJoin = "round";
+  let currentTool = "pencil";
+  let currentColor = "#8b5cf6";
+
+  const colors = ["#000000", "#ef4444", "#f97316", "#eab308", "#22c55e", "#3b82f6", "#8b5cf6", "#ec4899", "#ffffff", "#78716c"];
+
+  colors.forEach(c => {
+    const swatch = document.createElement("div");
+    swatch.className = "color-swatch";
+    swatch.style.background = c;
+    if (c === currentColor) swatch.classList.add("active");
+    swatch.onclick = () => {
+      currentColor = c;
+      document.querySelectorAll(".color-swatch").forEach(s => s.classList.remove("active"));
+      swatch.classList.add("active");
+    };
+    document.getElementById("colorPalette").appendChild(swatch);
+  });
+
+  function setTool(tool) {
+    currentTool = tool;
+    document.querySelectorAll(".tools button").forEach(b => b.classList.remove("active-tool"));
+    event.target.classList.add("active-tool");
+  }
+
+  function switchPaintTab(tab) {
+    document.querySelectorAll(".paint-tabs button").forEach(b => b.classList.remove("active"));
+    event.target.classList.add("active");
+
+    if (tab === "canvas") {
+      canvas.style.display = "block";
+      colorCanvas.style.display = "none";
+    } else {
+      canvas.style.display = "none";
+      colorCanvas.style.display = "block";
+      drawColorPage();
+    }
+  }
+
+  // Simple color page (gets harder later)
+  let colorLevel = 1;
+  function drawColorPage() {
+    colorCtx.clearRect(0, 0, colorCanvas.width, colorCanvas.height);
+    colorCtx.strokeStyle = "#333";
+    colorCtx.lineWidth = 3;
+
+    if (colorLevel === 1) {
+      // Simple circle
+      colorCtx.beginPath();
+      colorCtx.arc(350, 190, 120, 0, Math.PI * 2);
+      colorCtx.stroke();
+    } else if (colorLevel === 2) {
+      // House
+      colorCtx.strokeRect(250, 180, 200, 140);
+      colorCtx.beginPath();
+      colorCtx.moveTo(250, 180);
+      colorCtx.lineTo(350, 100);
+      colorCtx.lineTo(450, 180);
+      colorCtx.stroke();
+    } else {
+      // More complex shape
+      colorCtx.beginPath();
+      colorCtx.moveTo(200, 300);
+      colorCtx.lineTo(300, 100);
+      colorCtx.lineTo(400, 300);
+      colorCtx.closePath();
+      colorCtx.stroke();
+      colorCtx.beginPath();
+      colorCtx.arc(300, 200, 60, 0, Math.PI * 2);
+      colorCtx.stroke();
+    }
+  }
 
   function startPos(e) {
     painting = true;
@@ -434,85 +608,60 @@
   function endPos() {
     painting = false;
     ctx.beginPath();
+    colorCtx.beginPath();
   }
   function draw(e) {
     if (!painting) return;
-    const rect = canvas.getBoundingClientRect();
+    const target = canvas.style.display !== "none" ? canvas : colorCanvas;
+    const context = target === canvas ? ctx : colorCtx;
+    const rect = target.getBoundingClientRect();
     const x = (e.clientX || e.touches[0].clientX) - rect.left;
     const y = (e.clientY || e.touches[0].clientY) - rect.top;
-    ctx.lineWidth = document.getElementById('brushSize').value;
-    ctx.strokeStyle = document.getElementById('colorPicker').value;
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(x, y);
+
+    context.lineWidth = document.getElementById("brushSize").value;
+    context.lineCap = "round";
+    context.lineJoin = "round";
+
+    if (currentTool === "eraser") {
+      context.strokeStyle = "#ffffff";
+    } else {
+      context.strokeStyle = currentColor;
+    }
+
+    context.lineTo(x, y);
+    context.stroke();
+    context.beginPath();
+    context.moveTo(x, y);
   }
 
   canvas.addEventListener("mousedown", startPos);
   canvas.addEventListener("mouseup", endPos);
   canvas.addEventListener("mousemove", draw);
-  canvas.addEventListener("touchstart", startPos);
-  canvas.addEventListener("touchend", endPos);
-  canvas.addEventListener("touchmove", draw);
+  colorCanvas.addEventListener("mousedown", startPos);
+  colorCanvas.addEventListener("mouseup", endPos);
+  colorCanvas.addEventListener("mousemove", draw);
 
   function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    colorCtx.clearRect(0, 0, colorCanvas.width, colorCanvas.height);
+    if (colorCanvas.style.display !== "none") drawColorPage();
   }
 
-  // Voice
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let recognition = null;
-  let isListening = false;
-
-  if (SpeechRecognition) {
-    recognition = new SpeechRecognition();
-    recognition.continuous = false;
-    recognition.lang = "en-US";
-
-    recognition.onstart = () => {
-      isListening = true;
-      micBtn.classList.add("listening");
-      status.textContent = "Listening...";
-      updateFace("thinking");
-    };
-    recognition.onresult = (e) => {
-      userInput.value = e.results[0][0].transcript;
-      sendMessage();
-    };
-    recognition.onend = () => {
-      isListening = false;
-      micBtn.classList.remove("listening");
-      status.textContent = "";
-    };
-  }
-
-  micBtn.addEventListener("click", () => {
-    if (!recognition) return alert("Use Chrome for voice");
-    isListening ? recognition.stop() : recognition.start();
-  });
-
-  function speak(text) {
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.rate = 0.95;
-      window.speechSynthesis.speak(utter);
-    }
-  }
+  // ========== CHAT ==========
+  const userInput = document.getElementById("userInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const micBtn = document.getElementById("micBtn");
+  const status = document.getElementById("status");
 
   function escapeHtml(text) {
-    return text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+    return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
   function copyCode(id) {
     const code = document.getElementById(id).innerText;
     navigator.clipboard.writeText(code).then(() => {
-      const btn = event.target;
-      btn.innerText = "Copied!";
-      setTimeout(() => btn.innerText = "Copy", 1500);
+      event.target.innerText = "Copied!";
+      setTimeout(() => event.target.innerText = "Copy", 1500);
     });
   }
 
@@ -521,19 +670,11 @@
     div.className = `message ${isUser ? "user" : "soul"}`;
 
     let formatted = text
-      .replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-        const id = "code-" + Math.random().toString(36).substr(2, 9);
-        return `
-          <div class="code-block">
-            <div class="code-header">
-              <span>${lang || "code"}</span>
-              <button onclick="copyCode('${id}')">Copy</button>
-            </div>
-            <pre id="${id}"><code>${escapeHtml(code.trim())}</code></pre>
-          </div>
-        `;
+      .replace(/```(\w+)?\n([\s\S]*?)```/g, (m, lang, code) => {
+        const id = "code-" + Math.random().toString(36).substr(2, 8);
+        return `<div class="code-block"><div class="code-header"><span>${lang || "code"}</span><button onclick="copyCode('${id}')">Copy</button></div><pre id="${id}"><code>${escapeHtml(code.trim())}</code></pre></div>`;
       })
-      .replace(/`([^`]+)`/g, "<code class='inline-code'>$1</code>")
+      .replace(/`([^`]+)`/g, "<code style='background:rgba(139,92,246,0.2);padding:2px 5px;border-radius:4px'>$1</code>")
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\n/g, "<br>");
 
@@ -549,7 +690,6 @@
     const text = userInput.value.trim();
     if (!text) return;
 
-    const mode = modeSelect.value;
     addMessage(text, true);
     userInput.value = "";
     status.textContent = "Living Soul is thinking...";
@@ -559,26 +699,57 @@
       const response = await fetch("/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, mode: mode })
+        body: JSON.stringify({ message: text, mode: modeSelect.value })
       });
-
       const data = await response.json();
       addMessage(data.reply);
       speak(data.reply);
       updateFace(data.mood || "happy");
-    } catch (err) {
+    } catch {
       addMessage("Connection failed.");
       updateFace("sad");
     }
     status.textContent = "";
   }
 
+  function speak(text) {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.rate = 0.95;
+      window.speechSynthesis.speak(utter);
+    }
+  }
+
   sendBtn.addEventListener("click", sendMessage);
-  userInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") sendMessage();
+  userInput.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
+
+  // Voice
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let recognition = null;
+  if (SpeechRecognition) {
+    recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.onstart = () => {
+      micBtn.classList.add("listening");
+      status.textContent = "Listening...";
+      updateFace("thinking");
+    };
+    recognition.onresult = e => {
+      userInput.value = e.results[0][0].transcript;
+      sendMessage();
+    };
+    recognition.onend = () => {
+      micBtn.classList.remove("listening");
+      status.textContent = "";
+    };
+  }
+  micBtn.addEventListener("click", () => {
+    if (!recognition) return alert("Use Chrome for voice");
+    recognition.start();
   });
 
-  updateFace("happy");
+  updateFace();
 </script>
 </body>
 </html>
