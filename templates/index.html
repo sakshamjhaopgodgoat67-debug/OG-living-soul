@@ -26,14 +26,11 @@
       radial-gradient(ellipse at bottom right, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
   }
 
-  /* ===== LOGIN SCREEN ===== */
+  /* LOGIN */
   #loginScreen {
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background: #030308;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     z-index: 1000;
   }
 
@@ -42,67 +39,46 @@
     border: 1px solid rgba(139, 92, 246, 0.3);
     border-radius: 24px;
     padding: 40px 35px;
-    width: 90%;
-    max-width: 380px;
+    width: 90%; max-width: 380px;
     text-align: center;
   }
 
   .login-box h2 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+    font-size: 1.8rem; margin-bottom: 8px;
     background: linear-gradient(135deg, #c4b5fd, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
 
-  .login-box p {
-    color: #94a3b8;
-    margin-bottom: 25px;
-    font-size: 0.95rem;
-  }
+  .login-box p { color: #94a3b8; margin-bottom: 25px; font-size: 0.95rem; }
 
   .login-box input {
-    width: 100%;
-    padding: 14px 18px;
+    width: 100%; padding: 14px 18px;
     border-radius: 14px;
     border: 1px solid rgba(139, 92, 246, 0.35);
     background: rgba(0,0,0,0.3);
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    margin-bottom: 18px;
-    font-family: inherit;
+    color: white; font-size: 1rem; outline: none;
+    margin-bottom: 18px; font-family: inherit;
   }
 
   .login-box button {
-    width: 100%;
-    padding: 14px;
-    border-radius: 14px;
-    border: none;
+    width: 100%; padding: 14px;
+    border-radius: 14px; border: none;
     background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-    color: white;
-    font-size: 1.05rem;
-    font-weight: 500;
-    cursor: pointer;
+    color: white; font-size: 1.05rem; font-weight: 500; cursor: pointer;
   }
 
-  /* ===== HELLO POPUP ===== */
+  /* HELLO POPUP */
   #helloPopup {
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
+    display: none; align-items: center; justify-content: center;
     z-index: 2000;
   }
 
   #helloPopup h1 {
-    font-size: 3.2rem;
-    font-weight: 700;
+    font-size: 3.2rem; font-weight: 700;
     background: linear-gradient(135deg, #facc15, #eab308);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: popIn 0.6s ease;
   }
 
@@ -111,26 +87,20 @@
     100% { transform: scale(1); opacity: 1; }
   }
 
-  /* ===== MAIN APP ===== */
   #mainApp { display: none; }
 
   .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 25px 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    max-width: 900px; margin: 0 auto;
+    padding: 25px 20px; min-height: 100vh;
+    display: flex; flex-direction: column;
   }
 
   header { text-align: center; margin-bottom: 20px; }
 
   .logo {
-    font-size: 2.6rem;
-    font-weight: 700;
+    font-size: 2.6rem; font-weight: 700;
     background: linear-gradient(135deg, #c4b5fd, #8b5cf6, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
 
   .tagline { font-size: 0.9rem; color: #94a3b8; margin: 4px 0 16px; }
@@ -138,8 +108,7 @@
   .face-container { display: flex; justify-content: center; margin-bottom: 16px; }
 
   .face {
-    width: 68px; height: 68px;
-    border-radius: 50%;
+    width: 68px; height: 68px; border-radius: 50%;
     background: linear-gradient(145deg, #facc15, #eab308);
     display: flex; align-items: center; justify-content: center;
     font-size: 2.3rem;
@@ -157,23 +126,17 @@
     background: rgba(139, 92, 246, 0.12);
     border: 1px solid rgba(139, 92, 246, 0.35);
     color: #e2e8f0;
-    padding: 10px 18px;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-family: inherit;
-    outline: none;
-    min-width: 200px;
+    padding: 10px 18px; border-radius: 12px;
+    font-size: 0.95rem; font-family: inherit;
+    outline: none; min-width: 240px;
   }
 
   .chat-box {
-    flex: 1;
-    background: var(--card);
+    flex: 1; background: var(--card);
     backdrop-filter: blur(24px);
     border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 20px;
-    overflow-y: auto;
-    max-height: 42vh;
+    border-radius: 22px; padding: 20px;
+    overflow-y: auto; max-height: 42vh;
     margin-bottom: 16px;
   }
 
@@ -182,8 +145,7 @@
   .message.user { flex-direction: row-reverse; }
 
   .avatar {
-    width: 36px; height: 36px;
-    border-radius: 50%;
+    width: 36px; height: 36px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 0.95rem; flex-shrink: 0;
   }
@@ -196,11 +158,8 @@
   .avatar.user { background: #1e293b; border: 1px solid #334155; }
 
   .bubble {
-    max-width: 78%;
-    padding: 12px 16px;
-    border-radius: 16px;
-    line-height: 1.5;
-    font-size: 0.95rem;
+    max-width: 78%; padding: 12px 16px;
+    border-radius: 16px; line-height: 1.5; font-size: 0.95rem;
   }
 
   .message.soul .bubble {
@@ -215,151 +174,107 @@
     border-bottom-right-radius: 4px;
   }
 
+  /* Code Block Style */
   .code-block {
-    background: #0f0f1a;
-    border: 1px solid rgba(139, 92, 246, 0.25);
+    background: #0d0d14;
+    border: 1px solid rgba(139, 92, 246, 0.3);
     border-radius: 12px;
-    margin: 10px 0;
+    margin: 12px 0;
     overflow: hidden;
+    position: relative;
   }
 
   .code-header {
     display: flex; justify-content: space-between; align-items: center;
     background: rgba(139, 92, 246, 0.15);
-    padding: 7px 12px;
-    font-size: 0.78rem;
-    color: #c4b5fd;
+    padding: 8px 14px;
+    font-size: 0.8rem; color: #c4b5fd;
   }
 
   .code-header button {
-    background: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.35);
     border: none; color: white;
-    padding: 3px 10px; border-radius: 5px;
+    padding: 4px 12px; border-radius: 6px;
     cursor: pointer; font-size: 0.78rem;
+    transition: 0.2s;
   }
+
+  .code-header button:hover { background: #8b5cf6; }
 
   .code-block pre {
-    margin: 0; padding: 12px;
+    margin: 0; padding: 14px;
     overflow-x: auto;
-    font-size: 0.85rem;
-    line-height: 1.45;
-    color: #e2e8f0;
+    font-size: 0.87rem; line-height: 1.5;
+    color: #e2e8f0; font-family: 'Courier New', monospace;
   }
 
-  /* ===== PAINTING MODE ===== */
+  /* Painting */
   #paintingArea {
-    display: none;
-    background: #0c0c14;
-    border-radius: 18px;
-    padding: 16px;
-    margin-bottom: 14px;
-    border: 1px solid var(--border);
+    display: none; background: #0c0c14;
+    border-radius: 18px; padding: 16px;
+    margin-bottom: 14px; border: 1px solid var(--border);
   }
 
   .paint-tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 14px;
-    justify-content: center;
+    display: flex; gap: 10px; margin-bottom: 14px; justify-content: center;
   }
 
   .paint-tabs button {
-    padding: 8px 18px;
-    border-radius: 10px;
+    padding: 8px 18px; border-radius: 10px;
     border: 1px solid rgba(139, 92, 246, 0.3);
-    background: transparent;
-    color: #c4b5fd;
-    cursor: pointer;
-    font-family: inherit;
+    background: transparent; color: #c4b5fd;
+    cursor: pointer; font-family: inherit;
   }
 
-  .paint-tabs button.active {
-    background: rgba(139, 92, 246, 0.25);
-  }
+  .paint-tabs button.active { background: rgba(139, 92, 246, 0.25); }
 
   #paintCanvas, #colorCanvas {
-    background: white;
-    border-radius: 10px;
-    cursor: crosshair;
-    max-width: 100%;
-    touch-action: none;
-    display: block;
-    margin: 0 auto;
+    background: white; border-radius: 10px;
+    cursor: crosshair; max-width: 100%;
+    touch-action: none; display: block; margin: 0 auto;
   }
 
   .tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 12px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; margin-top: 12px;
   }
 
   .tools button, .tools input {
-    padding: 7px 12px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    background: rgba(139, 92, 246, 0.2);
-    color: white;
-    font-size: 0.85rem;
+    padding: 7px 12px; border-radius: 8px; border: none;
+    cursor: pointer; font-family: inherit;
+    background: rgba(139, 92, 246, 0.2); color: white; font-size: 0.85rem;
   }
 
-  .tools button.active-tool {
-    background: #8b5cf6;
-  }
+  .tools button.active-tool { background: #8b5cf6; }
 
   .color-palette {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    margin-top: 10px;
-    flex-wrap: wrap;
+    display: flex; gap: 6px; justify-content: center;
+    margin-top: 10px; flex-wrap: wrap;
   }
 
   .color-swatch {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
+    width: 28px; height: 28px; border-radius: 50%;
+    cursor: pointer; border: 2px solid transparent;
   }
 
-  .color-swatch.active {
-    border-color: white;
-    transform: scale(1.15);
-  }
+  .color-swatch.active { border-color: white; transform: scale(1.15); }
 
   .input-area {
-    background: var(--card);
-    backdrop-filter: blur(24px);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 9px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
+    background: var(--card); backdrop-filter: blur(24px);
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 9px; display: flex; gap: 8px; align-items: center;
   }
 
   #userInput {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    padding: 11px 14px;
-    outline: none;
-    font-family: inherit;
+    flex: 1; background: transparent; border: none;
+    color: white; font-size: 1rem; padding: 11px 14px;
+    outline: none; font-family: inherit;
   }
 
   .btn {
-    width: 46px; height: 46px;
-    border-radius: 13px;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 46px; height: 46px; border-radius: 13px;
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
     font-size: 1.25rem;
   }
 
@@ -368,17 +283,14 @@
   .btn-send { background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white; }
 
   .status {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #64748b;
-    margin-top: 10px;
-    min-height: 18px;
+    text-align: center; font-size: 0.8rem;
+    color: #64748b; margin-top: 10px; min-height: 18px;
   }
 </style>
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
+<!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-box">
     <h2>Living Soul</h2>
@@ -388,12 +300,12 @@
   </div>
 </div>
 
-<!-- HELLO POPUP -->
+<!-- HELLO -->
 <div id="helloPopup">
   <h1 id="helloText">HELLO</h1>
 </div>
 
-<!-- MAIN APP -->
+<!-- MAIN -->
 <div id="mainApp">
   <div class="container">
     <header>
@@ -406,17 +318,17 @@
 
       <div class="mode-selector">
         <select id="modeSelect">
-          <option value="normal">Normal Mode</option>
-          <option value="roast">Roast Mode</option>
-          <option value="fun">Fun Mode</option>
-          <option value="career">Career Mode</option>
-          <option value="coder">Coder Mode</option>
-          <option value="painting">Painting Mode</option>
+          <option value="normal">Arthur — Normal</option>
+          <option value="roast">Rex — Roast</option>
+          <option value="fun">Kuchupuchu — Fun</option>
+          <option value="career">Mike — Career</option>
+          <option value="coder">Harry — Coder</option>
+          <option value="painting">Lucy — Painting</option>
+          <option value="song">Michael Jackson — Song</option>
         </select>
       </div>
     </header>
 
-    <!-- PAINTING AREA -->
     <div id="paintingArea">
       <div class="paint-tabs">
         <button class="active" onclick="switchPaintTab('canvas')">Free Canvas</button>
@@ -455,7 +367,6 @@
 </div>
 
 <script>
-  // ========== USERNAME & LOGIN ==========
   let username = localStorage.getItem("living_soul_user") || "";
 
   function startApp() {
@@ -469,7 +380,6 @@
     document.getElementById("helloPopup").style.display = "flex";
     document.getElementById("helloText").innerText = `HELLO ${name.toUpperCase()}`;
 
-    // Speak hello
     const utter = new SpeechSynthesisUtterance(`Hello ${name}`);
     utter.rate = 0.9;
     window.speechSynthesis.speak(utter);
@@ -480,13 +390,11 @@
     }, 2500);
   }
 
-  // If already logged in
   if (username) {
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("mainApp").style.display = "block";
   }
 
-  // ========== FACE & MODES ==========
   const face = document.getElementById("face");
   const modeSelect = document.getElementById("modeSelect");
   const paintingArea = document.getElementById("paintingArea");
@@ -494,7 +402,7 @@
 
   const faceStyles = {
     normal: "😊", roast: "😈", fun: "🤪",
-    career: "🧠", coder: "💻", painting: "🎨"
+    career: "🧠", coder: "💻", painting: "🎨", song: "🎤"
   };
 
   function updateFace(mood = "happy") {
@@ -523,7 +431,7 @@
     }
   });
 
-  // ========== PAINTING ==========
+  // Painting
   const canvas = document.getElementById("paintCanvas");
   const colorCanvas = document.getElementById("colorCanvas");
   const ctx = canvas.getContext("2d");
@@ -533,7 +441,6 @@
   let currentColor = "#8b5cf6";
 
   const colors = ["#000000", "#ef4444", "#f97316", "#eab308", "#22c55e", "#3b82f6", "#8b5cf6", "#ec4899", "#ffffff", "#78716c"];
-
   colors.forEach(c => {
     const swatch = document.createElement("div");
     swatch.className = "color-swatch";
@@ -556,7 +463,6 @@
   function switchPaintTab(tab) {
     document.querySelectorAll(".paint-tabs button").forEach(b => b.classList.remove("active"));
     event.target.classList.add("active");
-
     if (tab === "canvas") {
       canvas.style.display = "block";
       colorCanvas.style.display = "none";
@@ -567,20 +473,16 @@
     }
   }
 
-  // Simple color page (gets harder later)
   let colorLevel = 1;
   function drawColorPage() {
     colorCtx.clearRect(0, 0, colorCanvas.width, colorCanvas.height);
     colorCtx.strokeStyle = "#333";
     colorCtx.lineWidth = 3;
-
     if (colorLevel === 1) {
-      // Simple circle
       colorCtx.beginPath();
       colorCtx.arc(350, 190, 120, 0, Math.PI * 2);
       colorCtx.stroke();
     } else if (colorLevel === 2) {
-      // House
       colorCtx.strokeRect(250, 180, 200, 140);
       colorCtx.beginPath();
       colorCtx.moveTo(250, 180);
@@ -588,7 +490,6 @@
       colorCtx.lineTo(450, 180);
       colorCtx.stroke();
     } else {
-      // More complex shape
       colorCtx.beginPath();
       colorCtx.moveTo(200, 300);
       colorCtx.lineTo(300, 100);
@@ -601,15 +502,8 @@
     }
   }
 
-  function startPos(e) {
-    painting = true;
-    draw(e);
-  }
-  function endPos() {
-    painting = false;
-    ctx.beginPath();
-    colorCtx.beginPath();
-  }
+  function startPos(e) { painting = true; draw(e); }
+  function endPos() { painting = false; ctx.beginPath(); colorCtx.beginPath(); }
   function draw(e) {
     if (!painting) return;
     const target = canvas.style.display !== "none" ? canvas : colorCanvas;
@@ -617,17 +511,10 @@
     const rect = target.getBoundingClientRect();
     const x = (e.clientX || e.touches[0].clientX) - rect.left;
     const y = (e.clientY || e.touches[0].clientY) - rect.top;
-
     context.lineWidth = document.getElementById("brushSize").value;
     context.lineCap = "round";
     context.lineJoin = "round";
-
-    if (currentTool === "eraser") {
-      context.strokeStyle = "#ffffff";
-    } else {
-      context.strokeStyle = currentColor;
-    }
-
+    context.strokeStyle = currentTool === "eraser" ? "#ffffff" : currentColor;
     context.lineTo(x, y);
     context.stroke();
     context.beginPath();
@@ -647,7 +534,7 @@
     if (colorCanvas.style.display !== "none") drawColorPage();
   }
 
-  // ========== CHAT ==========
+  // Chat
   const userInput = document.getElementById("userInput");
   const sendBtn = document.getElementById("sendBtn");
   const micBtn = document.getElementById("micBtn");
@@ -672,7 +559,14 @@
     let formatted = text
       .replace(/```(\w+)?\n([\s\S]*?)```/g, (m, lang, code) => {
         const id = "code-" + Math.random().toString(36).substr(2, 8);
-        return `<div class="code-block"><div class="code-header"><span>${lang || "code"}</span><button onclick="copyCode('${id}')">Copy</button></div><pre id="${id}"><code>${escapeHtml(code.trim())}</code></pre></div>`;
+        return `
+          <div class="code-block">
+            <div class="code-header">
+              <span>${lang || "code"}</span>
+              <button onclick="copyCode('${id}')">Copy</button>
+            </div>
+            <pre id="${id}"><code>${escapeHtml(code.trim())}</code></pre>
+          </div>`;
       })
       .replace(/`([^`]+)`/g, "<code style='background:rgba(139,92,246,0.2);padding:2px 5px;border-radius:4px'>$1</code>")
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
